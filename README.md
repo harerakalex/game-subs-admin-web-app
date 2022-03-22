@@ -1,6 +1,6 @@
 # splash-admin-web-app
 
-Splash admin panel react web app
+Diver Adz admin panel react web app
 
 # Getting Started with Create React App
 
