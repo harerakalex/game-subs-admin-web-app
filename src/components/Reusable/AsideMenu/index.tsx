@@ -1,6 +1,7 @@
 import React, { FC, ReactElement, useEffect, useState } from 'react';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import PersonIcon from '@material-ui/icons/Person';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,11 +18,13 @@ interface IMenu {
 }
 
 enum ActiveMenu {
-  Users = 'User'
+  Users = 'User',
+  Withdraw = 'Withdraw'
 }
 
 const menus: IMenu[] = [
-  { id: 1, title: ActiveMenu.Users, icon: <PersonIcon />, url: Routes.Users }
+  { id: 1, title: ActiveMenu.Users, icon: <PersonIcon />, url: Routes.Users },
+  { id: 2, title: ActiveMenu.Withdraw, icon: <ArrowBack />, url: Routes.Withdraw }
 ];
 
 const AsideMenu: FC = (): ReactElement => {
@@ -39,6 +42,10 @@ const AsideMenu: FC = (): ReactElement => {
     switch (activePath) {
       case Routes.Users:
         setActive(ActiveMenu.Users);
+        break;
+
+      case Routes.Withdraw:
+        setActive(ActiveMenu.Withdraw);
         break;
 
       default:

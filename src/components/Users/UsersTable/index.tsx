@@ -23,7 +23,7 @@ type Props = {
   handleChangePage: (event: unknown, newPage: number) => void;
   handleChangeRowsPerPage: (event: ChangeEvent<HTMLInputElement>) => void;
 };
-const ShopsTable: FC<Props> = props => {
+const UsersTable: FC<Props> = props => {
   const {
     users,
     page,
@@ -39,10 +39,11 @@ const ShopsTable: FC<Props> = props => {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell>First name</TableCell>
-            <TableCell align="center">Last name</TableCell>
+          <TableRow style={{ background: 'lightgray' }}>
+            <TableCell>Name</TableCell>
             <TableCell align="center">Username</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Referred by</TableCell>
             <TableCell align="center">Subscription</TableCell>
             <TableCell align="center">Balance</TableCell>
             <TableCell align="center">Created</TableCell>
@@ -52,10 +53,11 @@ const ShopsTable: FC<Props> = props => {
           {users.map((user, index) => (
             <TableRow hover key={index}>
               <TableCell component="th" scope="row">
-                {user.firstName}
+                {`${user.firstName} ${user.lastName}`}
               </TableCell>
-              <TableCell align="center">{user.lastName}</TableCell>
               <TableCell align="center">{user.username}</TableCell>
+              <TableCell align="center">{user.email}</TableCell>
+              <TableCell align="center">{user.referral || 'N/A'}</TableCell>
               <TableCell align="center">{user.subscription}</TableCell>
               <TableCell align="center">{user.balance}</TableCell>
               <TableCell align="center">{Moment(user.createdAt).format('DD-MM-YYYY')}</TableCell>
@@ -79,4 +81,4 @@ const ShopsTable: FC<Props> = props => {
   );
 };
 
-export default ShopsTable;
+export default UsersTable;

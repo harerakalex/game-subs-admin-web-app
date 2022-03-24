@@ -57,6 +57,15 @@ const Login: FC = () => {
 
   const onSubmit = () => {
     setLoading(true);
+    if (
+      state.email !== 'hareraloston@gmail.com' &&
+      state.email !== 'montariotheo123@gmail.com' &&
+      state.email !== 'venantsekamana44@gmail.com'
+    ) {
+      toast.error('Wrong credentials');
+
+      return;
+    }
     loginAction(state)(dispatch);
   };
 

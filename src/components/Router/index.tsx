@@ -7,6 +7,7 @@ import NotFound from '../Reusable/PageNotFound';
 import Layout from '../Reusable/Layout';
 import Login from '../Login';
 import Users from '../Users';
+import Withdraws from '../Withdraws';
 
 const AppRouter: FC = () => {
   const unAuthorizedRoutes = [
@@ -14,7 +15,10 @@ const AppRouter: FC = () => {
     { path: Routes.Login, exact: true, component: <Login /> }
   ];
 
-  const authorizedRoutes = [{ path: Routes.Users, exact: true, component: <Users /> }];
+  const authorizedRoutes = [
+    { path: Routes.Users, exact: true, component: <Users /> },
+    { path: Routes.Withdraw, exact: true, component: <Withdraws /> }
+  ];
 
   return (
     <Router>
